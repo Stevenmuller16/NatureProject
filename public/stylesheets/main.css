@@ -21,3 +21,8 @@
 #large{
     font-size: 3rem;
 }
+/* G Maps*/
+#map{
+    height: 400px;
+    width: 100%;
+}

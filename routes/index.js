@@ -63,6 +63,7 @@ router.get("/logout",function(req, res) {
     res.redirect("/campgrounds");
 });
 
+
 //USER PROFILE ROUTE
 
 router.get("/users/:id", function(req, res) {
