@@ -29,7 +29,7 @@ router.post("/register", function(req, res) {
     User.register(newUser, req.body.password,function(err, user){
         if(err){
             req.flash("error", err.message);
-            console.log(err);
+           
             return res.render("register");
         }
         passport.authenticate("local")(req,res,function(){
@@ -41,14 +41,16 @@ router.post("/register", function(req, res) {
 
 //show login form
 router.get("/login", function(req, res) {
-    res.render("login");
+    res.render("login", {page: 'login'});
 });
 
 //login post
 router.post("/login",passport.authenticate("local", 
     {
         successRedirect:"/campgrounds",
-        failureRedirect:"/login"
+        failureRedirect:"/login",
+        failureFlash:true,
+        successFlash: 'Welcome back'
         
     }), function(req, res) {
     

@@ -47,7 +47,7 @@ router.post("/", middleware.isLoggedIn, function(req,res){
     }
     var newCamp = {name: name, image: image, description: desc, price: price, author: author};
     //Create a new camp and save to Mongo
-    Campground.Create(newCamp, function(err, newlyCreated){
+    Campground.create(newCamp, function(err, newlyCreated){
         if(err){
             console.log(err);
         }else{
@@ -87,7 +87,7 @@ router.put("/:id",middleware.checkCampgroundOwnership, function(req, res){
        if(err){
            res.redirect("/campgrounds");
        }else{
-           res.redirect("/campgrounds" +req.params.id);
+           res.redirect("/campgrounds");
        }
    }); 
 });

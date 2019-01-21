@@ -6,6 +6,7 @@ var middleware =  require("../middleware");
 
 //Comments new
 router.get("/new",middleware.isLoggedIn, function(req, res) {
+    console.log("entered new route");
     Campground.findById(req.params.id, function(err, campground){
         if(err){
             console.log(err);
@@ -68,7 +69,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req,res
             res.redirect("back");
         }else{
             req.flash("success", "You deleted your comment");
-            res.redirect("/campground/"+ req.params.id);
+            res.redirect("/campgrounds/"+ req.params.id);
         }
         
     });
